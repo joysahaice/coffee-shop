@@ -4,16 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Select Your Table | Coffee Shop</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
   <script>
-    const tables = [1, 2, 3, 4, 5, 6, 7, 8]; // Example table numbers
+    const tables = Array.from({length: 20}, (_, i) => i + 1);
 
     function renderTables() {
       const container = document.getElementById("table-container");
       tables.forEach(num => {
         const div = document.createElement("div");
-        div.className =
-          "w-24 h-24 flex items-center justify-center bg-white shadow-md rounded-xl border border-gray-200 hover:bg-amber-100 hover:shadow-lg cursor-pointer transition";
+        div.className = "table-item";
         div.textContent = "Table " + num;
         div.onclick = () => selectTable(num);
         container.appendChild(div);
@@ -23,14 +22,14 @@
     function selectTable(num) {
       sessionStorage.setItem("table", num);
       alert("You selected Table " + num);
-      window.location.href = "menu.html"; // redirect to menu page
+      window.location.href = "menu.html";
     }
 
     window.onload = renderTables;
   </script>
 </head>
-<body class="min-h-screen bg-amber-50 flex flex-col items-center justify-center p-6">
-  <h1 class="text-3xl font-bold text-amber-900 mb-6">☕ Select Your Table</h1>
-  <div id="table-container" class="flex flex-wrap gap-6 justify-center"></div>
+<body class="table-page">
+  <h1>☕ Select Your Table</h1>
+  <div id="table-container" class="table-container"></div>
 </body>
 </html>

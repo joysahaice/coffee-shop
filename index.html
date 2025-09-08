@@ -8,37 +8,18 @@
 <body class="welcome-page">
   <div class="overlay">
     <div class="welcome-box">
-      <h1>☕ Brew Haven Coffee</h1>
-      <p class="tagline">Freshly brewed happiness, right at your table</p>
-
+      <h1>
+        <img src="images/logo.jpg" alt="Coffee-r Attokahon Logo" class="logo">
+        Coffee-r Attokahon
+      </h1>
+      <p class="tagline">Apnar priyo adda, jekhane protiti chumuke lukano thake ekti notun golpo</p>
       <div class="table-select">
-        <!-- <h2>Select Your Table</h2> -->
-        <!-- <label for="table">Table:</label> -->
-        <!-- <select id="table">
-          <option value="">-- Choose --</option>
-          <option value="1">Table 1</option>
-          <option value="2">Table 2</option>
-          <option value="3">Table 3</option>
-          <option value="4">Table 4</option>
-        </select> -->
-        <!-- <br> -->
-         <button onclick="goToTables()">Select Your Table</button>
-        </div>
-        <!-- <button onclick="goToMenu()">Go to Menu</button> -->
+        <button onclick="goToTables()">Select Your Table</button>
+      </div>
     </div>
   </div>
 
   <script>
-    // function goToMenu() {
-    //   const table = document.getElementById('table').value;
-    //   if (!table) {
-    //     alert('Please select a table!');
-    //     return;
-    //   }
-    //   sessionStorage.setItem('table', table);
-    //   sessionStorage.removeItem('cart'); // clear old cart
-    //   window.location.href = 'menu.html';
-    // }
     function goToTables() {
       window.location.href = 'tables.html';
     }

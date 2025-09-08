@@ -15,20 +15,31 @@
   <a class="cart-link" href="cart.html">🛒 Go to Cart</a>
 
   <script>
-    // Example product arrays
+    // Updated menu data
     const menuData = {
       Coffee: [
         { name: "Espresso", price: 3, img: "images/espresso.jpg" },
         { name: "Cappuccino", price: 4, img: "images/cappuccino.jpg" },
-        { name: "Latte", price: 4.5, img: "images/latte.jpg" }
+        { name: "Latte", price: 4.5, img: "images/latte.jpg" },
+        { name: "Mocha", price: 5, img: "images/mocha.jpg" },
+        { name: "Black Coffee", price: 2.5, img: "images/black-coffee.jpg" },
+        { name: "Irish Coffee", price: 6, img: "images/irish-coffee.jpg" }
       ],
-      "Soft Drinks": [
-        { name: "Cola", price: 2, img: "images/cola.jpg" },
-        { name: "Orange Soda", price: 2, img: "images/orange-soda.jpg" }
+      Juices: [
+        { name: "Orange Juice", price: 3, img: "images/orange-juice.jpg" },
+        { name: "Apple Juice", price: 3, img: "images/apple-juice.jpg" },
+        { name: "Grape Juice", price: 3, img: "images/grape-juice.jpg" },
+        { name: "Mango Juice", price: 3.5, img: "images/mango-juice.jpg" },
+        { name: "Cranberry Juice", price: 3.5, img: "images/cranberry-juice.jpg" },
+        { name: "Pineapple Juice", price: 3.5, img: "images/pineapple-juice.jpg" }
       ],
       Teas: [
-        { name: "Green Tea", price: 2.5, img: "images/green-tea.png" },
-        { name: "Black Tea", price: 2.5, img: "images/black-tea.jpg" }
+        { name: "Black Tea", price: 2.5, img: "images/black-tea.jpg" },
+        { name: "Green Tea", price: 2.5, img: "images/green-tea.jpg" },
+        { name: "Lemon Tea", price: 2.5, img: "images/lemon-tea.jpg" },
+        { name: "Ginger Tea", price: 2.5, img: "images/ginger-tea.jpg" },
+        { name: "Milk Tea", price: 3, img: "images/milk-tea.jpg" },
+        { name: "Herbal Tea", price: 3, img: "images/herbal-tea.jpg" }
       ],
       Snacks: [
         { name: "Croissant", price: 2, img: "images/croissant.jpg" },
@@ -38,19 +49,16 @@
     };
 
     // Show table number
-    document.getElementById('table-number').textContent =
-      sessionStorage.getItem('table');
+    document.getElementById('table-number').textContent = sessionStorage.getItem('table');
 
     // Render menu dynamically
     function renderMenu() {
       const menuContainer = document.getElementById('menu');
       for (let category in menuData) {
-        // Section heading
         const section = document.createElement('div');
         section.innerHTML = `<h2 style="margin:20px 0;color:#5d4037;">${category}</h2>`;
         section.className = "menu-section";
 
-        // Items grid
         const grid = document.createElement('div');
         grid.className = "menu-container";
 
@@ -78,7 +86,6 @@
       alert(item + " added to cart!");
     }
 
-    // Call render on load
     renderMenu();
   </script>
 </body>

@@ -1,26 +1,29 @@
 /* ===== Global Styles ===== */
 body {
   font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
-  background: #fdf6f0;
-  color: #3e2723;
   margin: 0;
   padding: 0;
+  color: #3e2723;
   text-align: center;
+
+  /* Fixed background image for all pages */
+  background: url('images/coffee-bg.jpg') no-repeat center center fixed;
+  background-size: cover;
 }
 
-/* ===== Welcome Page ===== */
-.welcome-page {
-  background: url('images/coffee-bg.jpg') no-repeat center center/cover;
-  height: 100vh;
+/* Overlay for welcome page readability */
+.overlay {
+  background: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.overlay {
-  background: rgba(0, 0, 0, 0.6);
-  width: 100%;
-  height: 100%;
+/* ===== Welcome Page ===== */
+.welcome-page {
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -32,7 +35,7 @@ body {
   border-radius: 15px;
   box-shadow: 0 6px 15px rgba(0,0,0,0.3);
   text-align: center;
-  max-width: 400px;
+  max-width: 500px;
 }
 
 .welcome-box h1 {
@@ -48,22 +51,55 @@ body {
 
 /* ===== Header ===== */
 header {
-  background: #6d4c41;
+  background: rgba(109, 76, 65, 0.95);
   color: white;
   padding: 20px;
   font-size: 1.5em;
   font-weight: bold;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  border-radius: 0 0 12px 12px;
 }
 
-/* ===== Menu Items ===== */
+/* ===== Menu Page Table Number ===== */
+.table-info {
+  margin: 20px auto;
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #4e342e; /* dark brown text */
+  background: rgba(255, 235, 205, 0.8); /* light cream background */
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+/* ===== Menu Section ===== */
+.menu-section {
+  margin: 40px auto;
+  max-width: 1000px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Section headings styled like table number */
+.menu-section h2 {
+  font-size: 1.5em;
+  color: #4e342e; /* dark brown text */
+  background: rgba(255, 235, 205, 0.8); /* light cream background */
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  margin-bottom: 20px;
+}
+
 .menu-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
-  padding: 20px;
-  max-width: 1000px;
-  margin: auto;
+  margin-top: 20px;
 }
 
 .menu-item {
@@ -91,7 +127,7 @@ header {
   color: #5d4037;
 }
 
-/* ===== Cart ===== */
+/* ===== Cart Section ===== */
 #cart-list {
   list-style: none;
   padding: 0;
@@ -108,16 +144,29 @@ header {
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-/* ===== Buttons ===== */
+/* Total */
+#total {
+  margin: 20px auto 10px; /* bottom space for button */
+  font-size: 1.3em;
+  color: #4e342e;
+  background: rgba(255, 235, 205, 0.8); /* light cream background */
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+/* Confirm Order button under total */
 button {
-  background: #6d4c41;
+  display: block;
+  margin: 10px auto 0; /* below total */
+  background: #6d4c41; 
   color: white;
   border: none;
   padding: 10px 16px;
   cursor: pointer;
   border-radius: 8px;
   font-size: 1em;
-  margin-top: 10px;
   transition: background 0.2s ease, transform 0.1s ease;
 }
 
@@ -126,12 +175,12 @@ button:hover {
   transform: scale(1.05);
 }
 
-/* ===== Links ===== */
+/* Links */
 a, .cart-link {
   display: inline-block;
   margin: 20px auto;
   padding: 12px 18px;
-  background: #8d6e63;
+  background: #8d6e63; /* brown link */
   color: white;
   text-decoration: none;
   border-radius: 8px;
@@ -140,14 +189,80 @@ a, .cart-link {
 }
 
 a:hover, .cart-link:hover {
-  background: #5d4037;
+  background: #5d4037; /* darker brown */
   transform: scale(1.05);
 }
 
-/* ===== Table Info ===== */
-.table-info {
-  margin: 20px auto;
-  font-size: 1.2em;
+/* ===== Table Select Page ===== */
+.table-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  justify-content: flex-start;
+  padding: 40px 20px;
+}
+
+.table-page h1 {
+  font-size: 2em;
+  margin-bottom: 30px;
+  color: #4e342e;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 12px 24px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+}
+
+.table-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.table-item {
+  flex: 1 1 100px;
+  max-width: 120px;
+  height: 120px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-weight: bold;
   color: #4e342e;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.table-item:hover {
+  background: #ffe0b2; /* light orange hover */
+  transform: scale(1.05);
+}
+
+/* ===== Responsive ===== */
+@media screen and (max-width: 600px) {
+  .table-item {
+    flex: 1 1 80px;
+    max-width: 80px;
+    height: 80px;
+    font-size: 0.9em;
+  }
+  .menu-item img {
+    height: 120px;
+  }
+  .welcome-box {
+    padding: 20px;
+  }
+  #total {
+    font-size: 1.2em;
+    padding: 8px 14px;
+  }
+  button, a.cart-link {
+    padding: 8px 14px;
+    font-size: 0.95em;
+  }
 }
