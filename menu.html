@@ -75,7 +75,7 @@
       let cart = JSON.parse(sessionStorage.getItem('cart')) || [];
       cart.push({ item, price });
       sessionStorage.setItem('cart', JSON.stringify(cart));
-      // alert(item + " added to cart!");
+      alert(item + " added to cart!");
     }
 
     // Call render on load
