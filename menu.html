@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Menu | Coffee Shop</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>☕ Coffee Shop Menu</header>
+  <p class="table-info">Table: <span id="table-number"></span></p>
+
+  <!-- Menu Sections -->
+  <div id="menu"></div>
+
+  <a class="cart-link" href="cart.html">🛒 Go to Cart</a>
+
+  <script>
+    // Example product arrays
+    const menuData = {
+      Coffee: [
+        { name: "Espresso", price: 3, img: "images/espresso.jpg" },
+        { name: "Cappuccino", price: 4, img: "images/cappuccino.jpg" },
+        { name: "Latte", price: 4.5, img: "images/latte.jpg" }
+      ],
+      "Soft Drinks": [
+        { name: "Cola", price: 2, img: "images/cola.jpg" },
+        { name: "Orange Soda", price: 2, img: "images/orange-soda.jpg" }
+      ],
+      Teas: [
+        { name: "Green Tea", price: 2.5, img: "images/green-tea.png" },
+        { name: "Black Tea", price: 2.5, img: "images/black-tea.jpg" }
+      ],
+      Snacks: [
+        { name: "Croissant", price: 2, img: "images/croissant.jpg" },
+        { name: "Muffin", price: 2.5, img: "images/muffin.jpg" },
+        { name: "Sandwich", price: 3.5, img: "images/sandwich.jpg" }
+      ]
+    };
+
+    // Show table number
+    document.getElementById('table-number').textContent =
+      sessionStorage.getItem('table');
+
+    // Render menu dynamically
+    function renderMenu() {
+      const menuContainer = document.getElementById('menu');
+      for (let category in menuData) {
+        // Section heading
+        const section = document.createElement('div');
+        section.innerHTML = `<h2 style="margin:20px 0;color:#5d4037;">${category}</h2>`;
+        section.className = "menu-section";
+
+        // Items grid
+        const grid = document.createElement('div');
+        grid.className = "menu-container";
+
+        menuData[category].forEach(item => {
+          const div = document.createElement('div');
+          div.className = "menu-item";
+          div.innerHTML = `
+            <img src="${item.img}" alt="${item.name}">
+            <h3>${item.name} - $${item.price}</h3>
+            <button onclick="addToCart('${item.name}', ${item.price})">Add to Cart</button>
+          `;
+          grid.appendChild(div);
+        });
+
+        section.appendChild(grid);
+        menuContainer.appendChild(section);
+      }
+    }
+
+    // Add to cart function
+    function addToCart(item, price) {
+      let cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+      cart.push({ item, price });
+      sessionStorage.setItem('cart', JSON.stringify(cart));
+      alert(item + " added to cart!");
+    }
+
+    // Call render on load
+    renderMenu();
+  </script>
+</body>
+</html>
